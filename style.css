@@ -1,0 +1,54 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+main {
+    width: 80vw;
+    /* max-width: 100%; */
+    margin: 0 auto;
+    padding: 0;
+}
+
+div#game {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80vh;
+    /* margin-left: -0.75rem;
+    margin-right: -0.75rem; */
+    text-align: center;
+}
+
+div#game > div {
+    outline: 1px solid gray;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    /* padding-left: 0.75rem;
+    padding-right: 0.75rem; */
+}
+
+.grid-box {
+    flex: 0 0 auto;
+    /* width: 25% !important; */
+    /* height: 25%; */
+}
+
+.hover {
+    background-color: none;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button#color-button {
+    color: white;
+}
