@@ -1,9 +1,16 @@
 // element variable
 const gameDiv = document.getElementById("game");
+const colorBtn = document.getElementById("color-button");
 
 let colorOptions = ["black", "purple", "blue", "green", "yellow", "orange", "red"];
 let colorIndex = 0;
 let color = colorOptions[colorIndex];
+
+// function from stack overflow
+function addMultipleEventListeners(element, events, handler) {
+    events.forEach(e => element.addEventListener(e, handler))
+}
+
 
 function setUpGame() {
     // clear screen upon reset
@@ -14,6 +21,7 @@ function setUpGame() {
     let sideLength = prompt("Enter a side length for your etch a sketch: ");
     let grid = sideLength * sideLength;
     let boxSize = 100 / sideLength;
+    colorBtn.style.backgroundColor = color;
 
     // create the 16 div grid
     for (let i = 0; i < grid; i++) {
@@ -23,9 +31,25 @@ function setUpGame() {
         gridSquare.style.width = `${boxSize}%`;
         gridSquare.style.height = `${boxSize}%`;
 
+
+        // really wanna do a click and drag type color thing here
+        
+        // let drag = false;
         gridSquare.addEventListener("mousedown", (e) => {
-            
+            gridSquare.style.backgroundColor = color;
+            // gridSquare.addEventListener("mouseenter", (e) => {
+            //     gridSquare.style.backgroundColor = color;
+            // })
+            // drag = true;
         });
+
+        
+
+        // gridSquare.addEventListener("mouseup", (e) => {
+        //     drag = false;
+        // })
+
+        
 
         gameDiv.appendChild(gridSquare);
     }
@@ -40,8 +64,8 @@ function clearCurrentBoard() {
         let gameSquare = gameSquares[i];
         gameSquare.classList.remove("hover");
         gameSquare.style.backgroundColor = "";
-        document.getElementById("color-button").style.backgroundColor = "";
     }
+    colorBtn.style.backgroundColor = color;
 }
 
 function colorChange() {
